@@ -39,6 +39,6 @@ jobs:
       - name: Deploy to Netlify (create new site)
         run: |
           cd svelte-frontend
-          netlify deploy --dir=build --prod --auth=$NETLIFY_AUTH_TOKEN --message="Deployed from GitHub Actions"
+          netlify deploy --dir=build --prod --auth=$NETLIFY_AUTH_TOKEN --message="Deployed from GitHub Actions"  --site=xml-genarator-32
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
