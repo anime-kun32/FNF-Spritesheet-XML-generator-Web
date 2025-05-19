@@ -36,9 +36,10 @@ jobs:
           npm install
           npm run build
 
-      - name: Deploy to Netlify (create new site)
+      - name: Deploy to Netlify (linked by site ID)
         run: |
-          cd svelte-frontend
-          netlify deploy --dir=build --prod --auth=$NETLIFY_AUTH_TOKEN --message="Deployed from GitHub Actions"  --site=xml-genarator-32
+         cd svelte-frontend
+         netlify deploy --dir=build --prod --auth=$NETLIFY_AUTH_TOKEN --site=$NETLIFY_SITE_ID --message="Deployed from GitHub Actions"
         env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+         NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
